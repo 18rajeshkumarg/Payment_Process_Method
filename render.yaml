@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: payment-process-method
+    runtime: docker
+    repo: https://github.com/18rajeshkumarg/Payment_Process_Method.git
+    dockerfilePath: "Payment Method/Dockerfile"
+    dockerContext: "Payment Method"
+    plan: free
+    region: oregon
+    branch: main
+    healthCheckPath: /
+    envVars:
+      - key: PAYMONGO_SECRET_KEY
+        sync: false
+      - key: PORT
+        value: 80

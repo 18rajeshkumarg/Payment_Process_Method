@@ -43,6 +43,19 @@ Point your PayMongo dashboard webhook to `https://<your-domain>/callback.php` wi
 
 > **Important:** PayMongo APIs/PayMongo Cards is a paid service provided by PayMongo. Always keep your secret key server-side only.
 
+## Deploy on Render (free)
+
+Render has no native PHP runtime, so this repo ships a `render.yaml` Blueprint + `Dockerfile` (PHP 8.3 + Apache) ready for one-click deploy:
+
+1. Sign in at https://dashboard.render.com.
+2. Click **New +** → **Blueprint**.
+3. Connect your GitHub account and select the `Payment_Process_Method` repository.
+4. Render reads `render.yaml`. When prompted, enter your real PayMongo secret key for `PAYMONGO_SECRET_KEY`.
+5. Click **Apply** and wait for the deploy to finish.
+6. Your live app is at `https://payment-process-method.onrender.com`.
+
+Pushes to `main` auto-redeploy the service.
+
 ## Notes
 
-- GitHub Pages serves only static files and cannot execute PHP. To make this live you need a PHP-capable host (e.g. a VPS, shared hosting, or a PaaS that supports PHP).
+- GitHub Pages serves only static files and cannot execute PHP, so Render (or any PHP-capable host) is required for a live, functional deployment.
